@@ -53,7 +53,7 @@ All **Actions** :bulb: can be voted :hand: on by the entire community for 5 days
 
 For an **Action** :bulb: to be accepted, it must have *more than 50% approval* and at least as many votes :hand: as there are **Guardian** :guardsman: members (although voting is open to all **Citizens** :family:).
 
-After this period accepted **Actions** :bolb: will be added to the **Action Stream** :clipboard: until they are marked as complete by one of the **Guardians** :guardsman:
+After this period accepted **Actions** :bulb: will be added to the **Action Stream** :clipboard: until they are marked as complete by one of the **Guardians** :guardsman:
 
 Declined **Actions** :bulb: will be dismissed to the **Archive** :recycle:
 
