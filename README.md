@@ -16,48 +16,52 @@ We use [Truffle](https://github.com/ConsenSys/truffle) as a contract development
 
 ## Architecture
 
+[![Architecture Diagram](https://s3-ap-southeast-2.amazonaws.com/bitboatassets/bitboat/assets/entropyDappDesc-7bbe05db5bc36c1a80ee3c13e24aaf22350c948b788b7cf8e29fb97c6bb3cce7.png?X-Amz-Date=20161124T210606Z&X-Amz-Expires=300&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Signature=9a7ce268a93cbb5afe46b1b6b82e6f026e095b249dfa454171205ee39607ac22&X-Amz-Credential=ASIAIS2OVHQA6275XHVQ/20161124/ap-southeast-2/s3/aws4_request&X-Amz-SignedHeaders=Host&x-amz-security-token=FQoDYXdzEMb//////////wEaDK7tRxxuqMSh9xXh1SL6AcXciOUgyOPB15/QnY19D9hWgNi7fVOsICzzBXYAxCEt5pVgMHTU5bhqtfwufhksc7SuOcF2Tc6bL3Prw%2BvCB8tD8BvlQfv3X7dkO41HB9NceaZlCZTXloLrCvL3sD56CWshq2GAQ1ie9VU3nux86G40SDLakQtBqVDlDr%2BdTj8%2ByCH9GCVV2IFPqfJdlcuq2oGTDhaANE9xyFnnpi%2Bm55D8DFb%2BQi0QTfiMGj1x8ydTsPM2L54ij2iAjpPqysqpzii%2B3SYIz7Y3ht%2BDByV3LEpSKY0bNBOEOzHyJqxgfVxuFl3PEwqyxTJmioUwLBUlhS/RIOteO%2B/1iFUo%2BavdwQU%3D)](https://s3-ap-southeast-2.amazonaws.com/bitboatassets/bitboat/assets/entropyDappDesc-7bbe05db5bc36c1a80ee3c13e24aaf22350c948b788b7cf8e29fb97c6bb3cce7.png?X-Amz-Date=20161124T210606Z&X-Amz-Expires=300&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Signature=9a7ce268a93cbb5afe46b1b6b82e6f026e095b249dfa454171205ee39607ac22&X-Amz-Credential=ASIAIS2OVHQA6275XHVQ/20161124/ap-southeast-2/s3/aws4_request&X-Amz-SignedHeaders=Host&x-amz-security-token=FQoDYXdzEMb//////////wEaDK7tRxxuqMSh9xXh1SL6AcXciOUgyOPB15/QnY19D9hWgNi7fVOsICzzBXYAxCEt5pVgMHTU5bhqtfwufhksc7SuOcF2Tc6bL3Prw%2BvCB8tD8BvlQfv3X7dkO41HB9NceaZlCZTXloLrCvL3sD56CWshq2GAQ1ie9VU3nux86G40SDLakQtBqVDlDr%2BdTj8%2ByCH9GCVV2IFPqfJdlcuq2oGTDhaANE9xyFnnpi%2Bm55D8DFb%2BQi0QTfiMGj1x8ydTsPM2L54ij2iAjpPqysqpzii%2B3SYIz7Y3ht%2BDByV3LEpSKY0bNBOEOzHyJqxgfVxuFl3PEwqyxTJmioUwLBUlhS/RIOteO%2B/1iFUo%2BavdwQU%3D)
+
+
 Entropy is built with an experimental but simple DAO structure designed to balance a real world project with the benefits of crowd wisdom and blockchain transparency.
 
-### Community
-**Citizens** hold the following rights:
+### Community :house_with_garden:
+**Citizens** :two_men_holding_hands: hold the following rights:
 
-- A single vote on every created **Action**
-- Creating **Actions**  
-- **Guardian** nomination
+- A single **Vote** :hand: on every created **Action** :bulb:
+- Creating **Actions** :bulb:
+- **Guardian** :guardsman: nomination
 
-Anyone can become a **Citizen** by obtaining one or more **Entropy Tokens**.
+Anyone can become a **Citizen** :running: by obtaining one or more **Entropy Tokens** :cookie:
 
-**Citizens** hold equal voting rights to everyone in the Entropy Community, they are able to suggest any **Action** for discussion and vote. These **Actions** can be anything at all, from destinations to sail to, events, changes to the mission itself and changes to the **Guardians**.
-
-
-A **Citizen** is anyone who holds one or more **Entropy Tokens**. Anyone with an Ethereum address can hold **Entropy Tokens**.
+**Citizens** :two_women_holding_hands: hold equal voting rights to everyone in the Entropy Community, they are able to suggest any **Action** :bulb: for discussion and vote. These **Actions** :bulb: can be anything at all, from destinations to sail to, events, changes to the mission itself and changes to the **Guardians** :guardsman:
 
 
-### Guardians
-Any **Citizen** can be elected to be a **Guardian** by an accepted **Action**.
+A **Citizen** :running: is anyone who holds one or more **Entropy Tokens** :cookie: Anyone with an Ethereum address can hold **Entropy Tokens** :cookie:
 
 
-**Guardians** take on the responsibility to fulfil and document everything within the **Action Stream** as organised by and voted on by the wider community.
+### Guardians :guardsman:
+Any **Citizen** :running: can be elected to be a **Guardian** :guardsman: by an accepted **Action** :bulb:
 
 
-**Guardians** have, in addition to the rights of all **Citizens** , access to any shared funds moved to the **Slush Pool** by the community voting as a whole.
+**Guardians** :guardsman: take on the responsibility to fulfil and document everything within the **Action Stream** :clipboard: as organised by and voted on by the wider community.
 
 
-### Actions and Funds
-Any **Citizen** can propose a new **Action**.
+**Guardians** :guardsman: have, in addition to the rights of all **Citizens** :running:, access to any shared funds moved to the **Slush Pool** :moneybag: by the community voting as a whole.
 
-All **Actions** can be voted on by the entire community for 5 days.
 
-For an **Action** to be accepted, it must have *more than 50% approval* and at least as many votes as there are **Guardian** members (although voting is open to all **Citizens**).
+### Actions and Funds :bulb: :moneybag:
+Any **Citizen** :running: can propose a new **Action** :bulb:
 
-After this period accepted **Actions** will be added to the **Action Stream** until they are marked as complete by one of the **Guardians**.
+All **Actions** :bulb: can be voted :hand: on by the entire community for 5 days.
 
-Declined **Actions** will be dismissed to the **Archive**.
+For an **Action** :bulb: to be accepted, it must have *more than 50% approval* and at least as many votes :hand: as there are **Guardian** :guardsman: members (although voting is open to all **Citizens** :family:).
 
-The **Action Stream** represents what the community is currently aiming to achieve.
+After this period accepted **Actions** :bolb: will be added to the **Action Stream** :clipboard: until they are marked as complete by one of the **Guardians** :guardsman:
 
-Any funds associated with **Actions** in the **Action Stream** become available in the **Slush Pool** for the **Guardians** to use towards making those **Actions** happen.
+Declined **Actions** :bulb: will be dismissed to the **Archive** :recycle:
 
+The **Action Stream** :clipboard: represents what the community is currently aiming to achieve.
+
+Any funds associated with **Actions** :bulb: in the **Action Stream** :clipboard: become available in the **Slush Pool** :moneybag: for the **Guardians** :guardsman: to use towards making those **Actions** :bulb: happen.
+
+:rainbow: :sailboat: :fireworks:
 
 ## Development
 
