@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/ProjectEntropy/contracts.png?label=ready&title=Ready)](https://waffle.io/ProjectEntropy/contracts)
 Project Entropy contracts [![Build Status](https://travis-ci.org/ProjectEntropy/contracts.svg?branch=master)](https://travis-ci.org/ProjectEntropy/contracts)
 ===
 #### Entropy is an Ethereum-powered floating experiment
