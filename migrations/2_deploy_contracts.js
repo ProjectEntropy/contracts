@@ -1,7 +1,7 @@
 module.exports = function(deployer) {
-  deployer.deploy(ConvertLib);
+  deployer.deploy(Owned);
   deployer.autolink();
   // Deploy used contracts
-  // deployer.deploy(ActionDatabase);
+  deployer.deploy(StandardToken);
   // deployer.deploy(Entropy);
 };
