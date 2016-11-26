@@ -22,44 +22,44 @@ We use [Truffle](https://github.com/ConsenSys/truffle) as a contract development
 Entropy is built with an experimental but simple DAO structure designed to balance a real world project with the benefits of crowd wisdom and blockchain transparency.
 
 ### Community :house_with_garden:
-**Citizens** :two_men_holding_hands: hold the following rights:
+Citizens :two_men_holding_hands: hold the following rights:
 
-- A single **Vote** :hand: on every created **Action** :bulb:
-- Creating **Actions** :bulb:
-- **Guardian** :guardsman: nomination
+- A single Vote :hand: on every created Action :bulb:
+- Creating Actions :bulb:
+- Guardian :guardsman: nomination
 
-Anyone can become a **Citizen** :running: by obtaining one or more **Entropy Tokens** :cookie:
+Anyone can become a Citizen :running: by obtaining one or more Entropy Tokens :cookie:
 
-**Citizens** :two_women_holding_hands: hold equal voting rights to everyone in the Entropy Community, they are able to suggest any **Action** :bulb: for discussion and vote. These **Actions** :bulb: can be anything at all, from destinations to sail to, events, changes to the mission itself and changes to the **Guardians** :guardsman:
+Citizens :two_women_holding_hands: hold equal voting rights to everyone in the Entropy Community, they are able to suggest any Action :bulb: for discussion and vote. These Actions :bulb: can be anything at all, from destinations to sail to, events, changes to the mission itself and changes to the Guardians :guardsman:
 
 
-A **Citizen** :running: is anyone who holds one or more **Entropy Tokens** :cookie: Anyone with an Ethereum address can hold **Entropy Tokens** :cookie:
+A Citizen :running: is anyone who holds one or more Entropy Tokens :cookie: Anyone with an Ethereum address can hold Entropy Tokens :cookie:
 
 
 ### Guardians :guardsman:
-Any **Citizen** :running: can be elected to be a **Guardian** :guardsman: by an accepted **Action** :bulb:
+Any Citizen :running: can be elected to be a Guardian :guardsman: by an accepted Action :bulb:
 
 
-**Guardians** :guardsman: take on the responsibility to fulfil and document everything within the **Action Stream** :clipboard: as organised by and voted on by the wider community.
+Guardians :guardsman: take on the responsibility to fulfil and document everything within the Action Stream :clipboard: as organised by and voted on by the wider community.
 
 
-**Guardians** :guardsman: have, in addition to the rights of all **Citizens** :running:, access to any shared funds moved to the **Slush Pool** :moneybag: by the community voting as a whole.
+Guardians :guardsman: have, in addition to the rights of all Citizens :running:, access to any shared funds moved to the Slush Pool :moneybag: by the community voting as a whole.
 
 
 ### Actions and Funds :bulb: :moneybag:
-Any **Citizen** :running: can propose a new **Action** :bulb:
+Any Citizen :running: can propose a new Action :bulb:
 
-All **Actions** :bulb: can be voted :hand: on by the entire community for 5 days.
+All Actions :bulb: can be voted :hand: on by the entire community for 5 days.
 
-For an **Action** :bulb: to be accepted, it must have *more than 50% approval* and at least as many votes :hand: as there are **Guardian** :guardsman: members (although voting is open to all **Citizens** :family:).
+For an Action :bulb: to be accepted, it must have *more than 50% approval* and at least as many votes :hand: as there are Guardian :guardsman: members (although voting is open to all Citizens :family:).
 
-After this period accepted **Actions** :bulb: will be added to the **Action Stream** :clipboard: until they are marked as complete by one of the **Guardians** :guardsman:
+After this period accepted Actions :bulb: will be added to the Action Stream :clipboard: until they are marked as complete by one of the Guardians :guardsman:
 
-Declined **Actions** :bulb: will be dismissed to the **Archive** :recycle:
+Declined Actions :bulb: will be dismissed to the Archive :recycle:
 
-The **Action Stream** :clipboard: represents what the community is currently aiming to achieve.
+The Action Stream :clipboard: represents what the community is currently aiming to achieve.
 
-Any funds associated with **Actions** :bulb: in the **Action Stream** :clipboard: become available in the **Slush Pool** :moneybag: for the **Guardians** :guardsman: to use towards making those **Actions** :bulb: happen.
+Any funds associated with Actions :bulb: in the Action Stream :clipboard: become available in the Slush Pool :moneybag: for the Guardians :guardsman: to use towards making those Actions :bulb: happen.
 
 :rainbow: :sailboat: :fireworks:
 
@@ -82,6 +82,10 @@ Entropy deployed eth-pudding object
 ```
 
 You need to be running a Ethereum node with RPC enabled for Truffle to connect. In this example, we are just running it with [testrpc](https://github.com/ethereumjs/testrpc), which is a in-memory RPC enabled node written in JS, that is very fast for development and testing. This can be run also on a private blockchain running with [geth](https://github.com/ethereum/go-ethereum), the Ethereum testnet or the mainnet. See [Truffle network configuration](http://truffleframework.com/docs/advanced/networks) for more info.
+
+To run the EntropyTestnet and connect to it with something expecting geth, run:
+
+    $ parity --chain ./entropy_testnet_chainspec.json --geth
 
 
 ## Testing
