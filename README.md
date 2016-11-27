@@ -37,13 +37,17 @@ Trusted Citizens :two_women_holding_hands: hold equal voting rights to all trust
 
 
 ### Guardians :guardsman:
-Any Citizen :running: can be elected to be a Guardian :guardsman: by an accepted Action :bulb:
-
 
 Guardians :guardsman: take on the responsibility to fulfil and document everything within the Action Stream :clipboard: as organised by and voted on by the wider community.
 
+They have, in addition to the rights of all Citizens :running:, access to any shared funds moved to the Slush Pool :moneybag: by the community voting as a whole.
 
-Guardians :guardsman: have, in addition to the rights of all Citizens :running:, access to any shared funds moved to the Slush Pool :moneybag: by the community voting as a whole.
+Guardians are also able to mark Citizens as trusted, allowing for a human-based
+proof of individuality system.
+
+Any Citizen :running: can be elected to be a Guardian :guardsman: by an accepted Action :bulb:
+
+Guardians are accountable to the wider community and can, if needs be, be unelected by a successful Action against them.
 
 
 ### Actions and Funds :bulb: :moneybag:
