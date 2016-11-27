@@ -28,12 +28,12 @@ Citizens :two_men_holding_hands: hold the following rights:
 - Creating Actions :bulb:
 - Guardian :guardsman: nomination
 
-Anyone can become a Citizen :running: by obtaining one or more Entropy Tokens :cookie:
+Anyone can become a Citizen :running: by obtaining and holding one or more Entropy Tokens :cookie:
 
-Citizens :two_women_holding_hands: hold equal voting rights to everyone in the Entropy Community, they are able to suggest any Action :bulb: for discussion and vote. These Actions :bulb: can be anything at all, from destinations to sail to, events, changes to the mission itself and changes to the Guardians :guardsman:
+The individuality of citizens is confirmed by the guardians, once it is confirmed
+they become Trusted Citizens :two_women_holding_hands:
 
-
-A Citizen :running: is anyone who holds one or more Entropy Tokens :cookie: Anyone with an Ethereum address can hold Entropy Tokens :cookie:
+Trusted Citizens :two_women_holding_hands: hold equal voting rights to all trusted individuals in the Entropy Community, they are able to suggest any Action :bulb: for discussion and vote. These Actions :bulb: can be anything at all, from destinations to sail to, events, changes to the mission itself and changes to the Guardians :guardsman:
 
 
 ### Guardians :guardsman:

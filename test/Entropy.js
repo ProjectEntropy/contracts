@@ -1,9 +1,15 @@
+deployEntropyContract = () => {
+  return Entropy.new({gas: 1000000})
+}
+
 contract('Entropy', (accounts) => {
 
   var creator_guardian  = web3.eth.accounts[0];
   var stranger          = web3.eth.accounts[1];
 
-  // Creation / Setup
+  /**
+   * Creation / Setup
+   */
   it("makes creator a Citizen", function(done) {
     deployEntropyContract()
       .then((entropy) => {
@@ -47,10 +53,35 @@ contract('Entropy', (accounts) => {
         })
       })
   });
+
+
+  /**
+   * Guardianship
+   */
+   var new_guardian = web3.eth.accounts[2];
+   it("allows Guardians to create other Guardians", function(done) {
+     deployEntropyContract()
+       .then((entropy) => {
+         entropy.setAsGuardian(new_guardian).then((tx) => {
+           entropy.isGuardian(new_guardian).then((guardian) => {
+             assert.equal(guardian, true, false, "Should \
+             have been guardian!");
+             done();
+           })
+         })
+       })
+   });
+
+   it("stops non-Guardians from creating Guardians", function(done) {
+     deployEntropyContract()
+       .then((entropy) => {
+         entropy.setAsGuardian.call(accounts[1], new_guardian).then((tx) => {
+           entropy.isGuardian(new_guardian).then((guardian) => {
+             assert.equal(guardian, false, false, "Should \
+             NOT have been guardian!");
+             done();
+           })
+         })
+       })
+   });
 })
-
-
-
-deployEntropyContract = () => {
-  return Entropy.new({gas: 1000000})
-}
