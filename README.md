@@ -92,6 +92,12 @@ To run the EntropyTestnet and connect to it with something expecting geth, run:
     $ parity --chain ./entropy_testnet_chainspec.json --geth
 
 
+## Gotchas
+
+    Uncaught BigNumber Error: new BigNumber() not a base 16 number:
+
+This can mean a string you were trying to access is null.
+
 ## Testing
 
 To run the tests, spin up an ethereum node and run:

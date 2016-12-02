@@ -1,13 +1,14 @@
 pragma solidity ^0.4.4;
 
-// import "tokens/StandardToken.sol";
+import "tokens/EntropyToken.sol";
 
-contract Entropy  {
+contract Entropy is EntropyToken {
+
   /**
    * A Citizen 🏃 is anyone who holds one or more Entropy Tokens 🍪
    * Any address with a balance > 0 is considered a Citizen
    */
-  mapping(address => uint256) balances;
+  /*mapping(address => uint256) balances;*/
 
   /**
    * Trusted Citizens 👬 hold equal voting rights to all
@@ -28,8 +29,17 @@ contract Entropy  {
    * ran once when the Entropy contract first comes into existence
    */
   function Entropy() {
+    // Setup token attributes
+    name      = "Entropy";
+    /*decimals  = 0;*/
+    /*symbol    = "ENT";        //identifier*/
+    /*version   = 'H0.1';       //human 0.1 standard. Just an arbitrary versioning scheme.*/
+
+
     // Add the creator as a Citizen and Guardian
+    totalSupply = 1;
     balances[msg.sender] = 1;
+    trusted[msg.sender] = true;
     guardians[msg.sender] = true;
   }
 
@@ -37,9 +47,18 @@ contract Entropy  {
    * Fallback function
    * This runs whenever ether is sent to Entropy without any other information
    */
-   function() {
-     balances[msg.sender] += msg.value;
-   }
+  function() {
+    buyTokens();
+  }
+
+
+  /**
+   * Creates Entropy tokens
+   */
+  function buyTokens() {
+    balances[msg.sender] += msg.value;
+  }
+
 
   /**
    * Guardians 💂
@@ -60,31 +79,19 @@ contract Entropy  {
     return guardians[_citizen];
   }
 
-  modifier onlyGuardians() {
-    if(isGuardian(msg.sender))
-    {
-      // Continue running
-      _;
-    }
-    else {
-      // Freak out :fire:
-      throw;
-    }
+  modifier onlyGuardians {
+    if (isGuardian(msg.sender) == false) throw;
+    _;
   }
 
-  // Citizenship (as balance > 0) of an address
-  function balanceOf(address _citizen) constant returns (uint256 balance) {
-    return balances[_citizen];
+  // Citizenship of an address
+  function isCitizen(address _citizen) public constant returns (bool citizen) {
+    return balanceOf(_citizen) > 0;
   }
 
-  // Move citizenship tokens from senders address to _to
-  function transfer(address _to, uint256 _value) returns (bool success) {
-      if (balances[msg.sender] >= _value && _value > 0) {
-          balances[msg.sender] -= _value;
-          balances[_to] += _value;
-          Transfer(msg.sender, _to, _value);
-          return true;
-      } else { return false; }
+  modifier onlyCitizens {
+    if (isCitizen(msg.sender) == false) throw;
+    _;
   }
 
 

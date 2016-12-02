@@ -1,33 +1,20 @@
-deployEntropyContract = () => {
-  return Entropy.new({gas: 1000000})
-}
+require('./helpers.js')
 
-contract('Entropy', (accounts) => {
+contract('Entropy - People', (accounts) => {
 
-  var creator_guardian  = web3.eth.accounts[0];
-  var stranger          = web3.eth.accounts[1];
+  var creator_guardian  = accounts[0];
+  var stranger          = accounts[1];
 
   /**
    * Creation / Setup
    */
-   describe("Creation / Setup", function(){
+   describe("Creation", function(){
      it("makes creator a Citizen", function(done) {
        deployEntropyContract()
          .then((entropy) => {
            entropy.balanceOf(creator_guardian).then((balance) => {
              assert.equal(balance, '1', false, "Did \
              not give citizenship token");
-             done();
-           })
-         })
-     });
-
-     it("keeps strangers as not yet Citizens", function(done) {
-       deployEntropyContract()
-         .then((entropy) => {
-           entropy.balanceOf(stranger).then((balance) => {
-             assert.equal(balance, '0', false, "Shouldn not have given \
-              citizenship token!");
              done();
            })
          })
@@ -44,6 +31,13 @@ contract('Entropy', (accounts) => {
          })
      });
 
+   })
+
+
+  /**
+   * Guardianship
+   */
+   describe("Guardianship", function(){
      it("keeps strangers as not Guardian", function(done) {
        deployEntropyContract()
          .then((entropy) => {
@@ -54,14 +48,6 @@ contract('Entropy', (accounts) => {
            })
          })
      });
-
-   })
-
-
-  /**
-   * Guardianship
-   */
-   describe("Guardianship", function(){
 
      var new_guardian = web3.eth.accounts[2];
      it("allows Guardians to create other Guardians", function(done) {
@@ -89,5 +75,33 @@ contract('Entropy', (accounts) => {
            })
          })
      });
+  })
+
+  /**
+   * Citizenship
+   * TODO: Fix why this is breaking
+   */
+  describe("Citizenship", function(){
+    it("keeps strangers as not yet Citizens", function(done) {
+      deployEntropyContract()
+       .then((entropy) => {
+         entropy.balanceOf(stranger).then((balance) => {
+           assert.equal(balance, '0', false, "Shouldn not have given \
+            citizenship token!");
+           done();
+         })
+       })
+    });
+
+    // it("knows people with at least one token are citizens", function(done) {
+    //   deployEntropyContract()
+    //   .then((entropy) => {
+    //     // Send 5 ether to entropy
+    //     // for some reason this freaks out as soon as value is added
+    //     entropy.buyTokens("", { value: 1 }).then(() => {
+    //       done(); // :fire:
+    //     })
+    //   })
+    // })
   })
 })
