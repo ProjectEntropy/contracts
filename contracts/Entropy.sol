@@ -32,6 +32,7 @@ contract Entropy is EntropyToken {
     name      = "Entropy";
     decimals  = 0;
     symbol    = "ENT";        //identifier
+    safety_limit = 300 ether;
 
     // Add the creator as a Citizen and Guardian
     totalSupply = 1;
@@ -58,7 +59,7 @@ contract Entropy is EntropyToken {
     if (value == 0) throw;
 
     // safety cap
-    // if (getTotalValue() + value > SAFETY_LIMIT) throw;
+    if (totalValue + value > safety_limit) throw;
 
     // 1 Ether === 1 Entropy Token
     //   Solidity will floor this by default, so sending 1.9 eth will result in
@@ -71,6 +72,14 @@ contract Entropy is EntropyToken {
     Transfer(this, buyer, value);
   }
 
+  function changeSafeyLimit(uint _new_limit) onlyGuardians returns (bool success) {
+    // Limit can only be increased
+    if(_new_limit < safety_limit) throw;
+
+    // Set new safety limit
+    safety_limit = _new_limit;
+    SafetyLimitChange(msg.sender, _new_limit);
+  }
 
   /**
    * Guardians 💂
@@ -113,4 +122,7 @@ contract Entropy is EntropyToken {
 
   // A new guardian has been elected
   event NewGuardian(address indexed _guardian, address indexed _creator);
+
+  // Safety Limit has been increased
+  event SafetyLimitChange(address indexed _guardian, uint indexed limit);
 }

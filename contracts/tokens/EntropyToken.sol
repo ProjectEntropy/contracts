@@ -22,7 +22,7 @@ contract EntropyToken is StandardToken {
   string public symbol;        // identifier
   string public version;       // human 0.1 standard. Just an arbitrary versioning scheme.
   uint   public totalValue;    // Total value in wei
-
+  uint   public safety_limit;  // Maximum safe amount of ether to hold
 
   /* Approves and then calls the receiving contract */
   function approveAndCall(address _spender, uint256 _value, bytes _extraData) returns (bool success) {
