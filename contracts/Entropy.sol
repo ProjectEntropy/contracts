@@ -8,7 +8,6 @@ contract Entropy is EntropyToken {
    * A Citizen 🏃 is anyone who holds one or more Entropy Tokens 🍪
    * Any address with a balance > 0 is considered a Citizen
    */
-  /*mapping(address => uint256) balances;*/
 
   /**
    * Trusted Citizens 👬 hold equal voting rights to all
@@ -31,10 +30,8 @@ contract Entropy is EntropyToken {
   function Entropy() {
     // Setup token attributes
     name      = "Entropy";
-    /*decimals  = 0;*/
-    /*symbol    = "ENT";        //identifier*/
-    /*version   = 'H0.1';       //human 0.1 standard. Just an arbitrary versioning scheme.*/
-
+    decimals  = 0;
+    symbol    = "ENT";        //identifier
 
     // Add the creator as a Citizen and Guardian
     totalSupply = 1;
@@ -55,8 +52,21 @@ contract Entropy is EntropyToken {
   /**
    * Creates Entropy tokens
    */
-  function buyTokens() {
-    balances[msg.sender] += msg.value;
+  function buyTokens() payable returns (bool success) {
+    var value = msg.value;
+    var buyer = msg.sender;
+    if (value == 0) throw;
+
+    // safety cap
+    //if (getTotalValue() + value > SAFETY_LIMIT) throw;
+
+    // 1 Ether === 1 Entropy Token
+    uint tokens = value / 1 ether;
+
+    totalSupply += tokens;
+    balances[buyer] += tokens;
+    totalValue += value;
+    Transfer(this, buyer, value);
   }
 
 

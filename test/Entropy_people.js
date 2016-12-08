@@ -1,4 +1,4 @@
-require('./helpers.js')
+const helpers = require('./helpers');
 
 contract('Entropy - People', (accounts) => {
 
@@ -10,7 +10,7 @@ contract('Entropy - People', (accounts) => {
    */
    describe("Creation", function(){
      it("makes creator a Citizen", function(done) {
-       deployEntropyContract()
+       helpers.deployEntropyContract()
          .then((entropy) => {
            entropy.balanceOf(creator_guardian).then((balance) => {
              assert.equal(balance, '1', false, "Did \
@@ -21,7 +21,7 @@ contract('Entropy - People', (accounts) => {
      });
 
      it("makes creator a Guardian", function(done) {
-       deployEntropyContract()
+       helpers.deployEntropyContract()
          .then((entropy) => {
            entropy.isGuardian(creator_guardian).then((guardian) => {
              assert.equal(guardian, true, false, "Did \
@@ -30,7 +30,6 @@ contract('Entropy - People', (accounts) => {
            })
          })
      });
-
    })
 
 
@@ -39,7 +38,7 @@ contract('Entropy - People', (accounts) => {
    */
    describe("Guardianship", function(){
      it("keeps strangers as not Guardian", function(done) {
-       deployEntropyContract()
+       helpers.deployEntropyContract()
          .then((entropy) => {
            entropy.isGuardian(stranger).then((guardian) => {
              assert.equal(guardian, false, false, "Should \
@@ -51,7 +50,7 @@ contract('Entropy - People', (accounts) => {
 
      var new_guardian = web3.eth.accounts[2];
      it("allows Guardians to create other Guardians", function(done) {
-       deployEntropyContract()
+       helpers.deployEntropyContract()
          .then((entropy) => {
            entropy.setGuardian(new_guardian, true).then((tx) => {
              entropy.isGuardian(new_guardian).then((guardian) => {
@@ -64,7 +63,7 @@ contract('Entropy - People', (accounts) => {
      });
 
      it("stops non-Guardians from creating Guardians", function(done) {
-       deployEntropyContract()
+       helpers.deployEntropyContract()
          .then((entropy) => {
            entropy.setGuardian.call(accounts[1], new_guardian, true).then((tx) => {
              entropy.isGuardian(new_guardian).then((guardian) => {
@@ -83,7 +82,7 @@ contract('Entropy - People', (accounts) => {
    */
   describe("Citizenship", function(){
     it("keeps strangers as not yet Citizens", function(done) {
-      deployEntropyContract()
+      helpers.deployEntropyContract()
        .then((entropy) => {
          entropy.balanceOf(stranger).then((balance) => {
            assert.equal(balance, '0', false, "Shouldn not have given \
@@ -94,7 +93,7 @@ contract('Entropy - People', (accounts) => {
     });
 
     // it("knows people with at least one token are citizens", function(done) {
-    //   deployEntropyContract()
+    //   helpers.deployEntropyContract()
     //   .then((entropy) => {
     //     // Send 5 ether to entropy
     //     // for some reason this freaks out as soon as value is added

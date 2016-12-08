@@ -1,3 +1,5 @@
+[![Entropy](https://s3-ap-southeast-2.amazonaws.com/bitboatassets/web/entropy.png)](https://s3-ap-southeast-2.amazonaws.com/bitboatassets/web/entropy.png)
+
 Project Entropy contracts
 ===
 [![Stories in Ready](https://badge.waffle.io/ProjectEntropy/contracts.png?label=ready&title=Ready)](https://waffle.io/ProjectEntropy/contracts)
@@ -15,9 +17,6 @@ We use [Truffle](https://github.com/ConsenSys/truffle) as a contract development
 [![Throughput Graph](https://graphs.waffle.io/ProjectEntropy/contracts/throughput.svg)](https://waffle.io/ProjectEntropy/contracts/metrics/throughput)
 
 ## Architecture
-
-[![Architecture Diagram](https://s3-ap-southeast-2.amazonaws.com/bitboatassets/bitboat/assets/entropyDappDesc-7bbe05db5bc36c1a80ee3c13e24aaf22350c948b788b7cf8e29fb97c6bb3cce7.png?X-Amz-Date=20161124T210606Z&X-Amz-Expires=300&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Signature=9a7ce268a93cbb5afe46b1b6b82e6f026e095b249dfa454171205ee39607ac22&X-Amz-Credential=ASIAIS2OVHQA6275XHVQ/20161124/ap-southeast-2/s3/aws4_request&X-Amz-SignedHeaders=Host&x-amz-security-token=FQoDYXdzEMb//////////wEaDK7tRxxuqMSh9xXh1SL6AcXciOUgyOPB15/QnY19D9hWgNi7fVOsICzzBXYAxCEt5pVgMHTU5bhqtfwufhksc7SuOcF2Tc6bL3Prw%2BvCB8tD8BvlQfv3X7dkO41HB9NceaZlCZTXloLrCvL3sD56CWshq2GAQ1ie9VU3nux86G40SDLakQtBqVDlDr%2BdTj8%2ByCH9GCVV2IFPqfJdlcuq2oGTDhaANE9xyFnnpi%2Bm55D8DFb%2BQi0QTfiMGj1x8ydTsPM2L54ij2iAjpPqysqpzii%2B3SYIz7Y3ht%2BDByV3LEpSKY0bNBOEOzHyJqxgfVxuFl3PEwqyxTJmioUwLBUlhS/RIOteO%2B/1iFUo%2BavdwQU%3D)](https://s3-ap-southeast-2.amazonaws.com/bitboatassets/bitboat/assets/entropyDappDesc-7bbe05db5bc36c1a80ee3c13e24aaf22350c948b788b7cf8e29fb97c6bb3cce7.png?X-Amz-Date=20161124T210606Z&X-Amz-Expires=300&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Signature=9a7ce268a93cbb5afe46b1b6b82e6f026e095b249dfa454171205ee39607ac22&X-Amz-Credential=ASIAIS2OVHQA6275XHVQ/20161124/ap-southeast-2/s3/aws4_request&X-Amz-SignedHeaders=Host&x-amz-security-token=FQoDYXdzEMb//////////wEaDK7tRxxuqMSh9xXh1SL6AcXciOUgyOPB15/QnY19D9hWgNi7fVOsICzzBXYAxCEt5pVgMHTU5bhqtfwufhksc7SuOcF2Tc6bL3Prw%2BvCB8tD8BvlQfv3X7dkO41HB9NceaZlCZTXloLrCvL3sD56CWshq2GAQ1ie9VU3nux86G40SDLakQtBqVDlDr%2BdTj8%2ByCH9GCVV2IFPqfJdlcuq2oGTDhaANE9xyFnnpi%2Bm55D8DFb%2BQi0QTfiMGj1x8ydTsPM2L54ij2iAjpPqysqpzii%2B3SYIz7Y3ht%2BDByV3LEpSKY0bNBOEOzHyJqxgfVxuFl3PEwqyxTJmioUwLBUlhS/RIOteO%2B/1iFUo%2BavdwQU%3D)
-
 
 Entropy is built with an experimental but simple DAO structure designed to balance a real world project with the benefits of crowd wisdom and blockchain transparency.
 
