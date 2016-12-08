@@ -88,7 +88,7 @@ contract('EntropyToken', (accounts) => {
       })
     })
 
-    it("lets guardians change safety limit", () => {
+    it("lets guardians change safety limit", (done) => {
       helpers.deployEntropyContract()
       .then((entropy) => {
         entropy.changeSafeyLimit(500e18)

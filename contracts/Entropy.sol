@@ -21,6 +21,8 @@ contract Entropy is EntropyToken {
    * proof of individuality system.
    */
   mapping(address => bool) guardians;
+  
+
 
 
   /**
@@ -37,8 +39,11 @@ contract Entropy is EntropyToken {
     // Add the creator as a Citizen and Guardian
     totalSupply = 1;
     balances[msg.sender] = 1;
+
     trusted[msg.sender] = true;
+
     guardians[msg.sender] = true;
+    NewGuardian(msg.sender, msg.sender);
   }
 
   /**
