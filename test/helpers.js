@@ -1,5 +1,5 @@
 exports.deployEntropyContract = () => {
-  return Entropy.new({gas: 1000000})
+  return Entropy.new({gas: 2000000})
 }
 
 

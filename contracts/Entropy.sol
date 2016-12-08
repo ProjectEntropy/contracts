@@ -41,6 +41,8 @@ contract Entropy is EntropyToken {
    * become available in the Slush Pool :moneybag: for the Guardians :guardsman:
    * to use towards making those Actions :bulb: happen.
    */
+  Action[] public actions;
+  uint public actions_count;
   struct Action {
     uint amount;
     string description;
@@ -48,7 +50,7 @@ contract Entropy is EntropyToken {
     bool done;
     bool actionPassed;
     uint numberOfVotes;
-    bytes32 proposalHash;
+    bytes32 actionHash;
     Vote[] votes;
     mapping (address => bool) voted;
   }
@@ -66,9 +68,9 @@ contract Entropy is EntropyToken {
   function Entropy() {
     // Setup token attributes
     name      = "Entropy";
-    decimals  = 0;
-    symbol    = "ENT";        //identifier
-    safety_limit = 300 ether;
+    decimals  = 0;            // 1 token cannot be devided
+    symbol    = "ENT";        // identifier
+    safety_limit = 300 ether; // Inital safety cap
 
     // Set the creator as Trusted, a Citizen and a Guardian
     totalSupply = 1;
@@ -86,10 +88,12 @@ contract Entropy is EntropyToken {
    * This runs whenever ether is sent to Entropy without any other information
    */
   function() {
+    // Buy tokens 🍪
     buyTokens();
   }
 
-  // Token Selling related
+
+  // Token Selling related 🍪
 
   /**
    * Alters the safety limit for the maximum value of tokens bought
@@ -102,6 +106,33 @@ contract Entropy is EntropyToken {
     safety_limit = _new_limit;
     SafetyLimitChange(msg.sender, _new_limit);
   }
+
+
+  /**
+   * Actions
+   *
+   * Trusted citizens can create an action, which then can be voted on for 5 days
+   */
+   function newAction(
+       uint _etherAmount,      // Amount to unlock (optional)
+       string _description    // The idea, task or destination
+   )
+       onlyTrusted // Only trusted Citizens
+       returns (uint actionID)
+   {
+       actionID = actions.length++;
+       Action a = actions[actionID];
+       a.amount = _etherAmount;
+       a.description = _description;
+       a.actionHash = sha3(_etherAmount, _description);
+       a.votingDeadline = now + 5 days;
+       a.done = false;
+       a.actionPassed = false;
+       a.numberOfVotes = 0;
+       ActionAdded(actionID, _etherAmount, _description);
+       actions_count = actionID + 1;
+   }
+
 
   /**
    * Guardians 💂
@@ -177,11 +208,14 @@ contract Entropy is EntropyToken {
    * Important changes to the state of Entropy
    */
 
+  event ActionAdded(uint actionID, uint amount, string description);
+
   // A new guardian has been elected
   event NewGuardian(address indexed _guardian, address indexed _creator);
 
   // A new person has been trusted
   event NewTrust(address indexed _citizen, address indexed _guardian);
+
   // A person is no longer trusted
   event TrustLost(address indexed _citizen, address indexed _guardian);
 

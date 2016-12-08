@@ -1,6 +1,6 @@
 const helpers = require('./helpers');
 
-contract('EntropyToken', (accounts) => {
+contract('Entropy - Token', (accounts) => {
   describe("Basic", () => {
     it("Sets valid attributes", function(done) {
       helpers.deployEntropyContract()
