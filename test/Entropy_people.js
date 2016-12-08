@@ -76,6 +76,50 @@ contract('Entropy - People', (accounts) => {
      });
   })
 
+
+  /**
+   * Trusted Citizens
+   */
+   describe("Trusted Citizens", function(){
+     it("keeps strangers as not Trusted Citizens", function(done) {
+       helpers.deployEntropyContract()
+         .then((entropy) => {
+           entropy.isTrusted(stranger).then((trusted) => {
+             assert.equal(trusted, false, false, "Should \
+             not have trusted stranger yet!");
+             done();
+           })
+         })
+     });
+
+     var new_trusted_citizen = web3.eth.accounts[2];
+     it("allows Guardians to trust Citizens", function(done) {
+       helpers.deployEntropyContract()
+         .then((entropy) => {
+           entropy.setTrust(new_trusted_citizen, true).then((tx) => {
+             entropy.isTrusted(new_trusted_citizen).then((trusted) => {
+               assert.equal(trusted, true, false, "Should \
+               have been trusted!");
+               done();
+             })
+           })
+         })
+     });
+
+     it("stops non-Guardians from trusting Citizens", function(done) {
+       helpers.deployEntropyContract()
+         .then((entropy) => {
+           entropy.setTrust.call(accounts[1], new_trusted_citizen, true).then((tx) => {
+             entropy.isTrusted(new_trusted_citizen).then((trusted) => {
+               assert.equal(trusted, false, false, "Should \
+               NOT have been trusted!");
+               done();
+             })
+           })
+         })
+     });
+  })
+
   /**
    * Citizenship
    * TODO: Fix why this is breaking

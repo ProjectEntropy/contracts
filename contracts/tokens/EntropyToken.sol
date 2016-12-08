@@ -24,6 +24,29 @@ contract EntropyToken is StandardToken {
   uint   public totalValue;    // Total value in wei
   uint   public safety_limit;  // Maximum safe amount of ether to hold
 
+
+  /**
+   * Creates Entropy tokens for whoever called this method
+   */
+  function buyTokens() payable returns (bool success) {
+    var value = msg.value;
+    var buyer = msg.sender;
+    if (value == 0) throw;
+
+    // safety cap
+    if (totalValue + value > safety_limit) throw;
+
+    // 1 Ether === 1 Entropy Token
+    //   Solidity will floor this by default, so sending 1.9 eth will result in
+    //   1 token
+    uint tokens = value / 1 ether;
+
+    totalSupply += tokens;
+    balances[buyer] += tokens;
+    totalValue += value;
+    Transfer(this, buyer, value);
+  }
+
   /* Approves and then calls the receiving contract */
   function approveAndCall(address _spender, uint256 _value, bytes _extraData) returns (bool success) {
     allowed[msg.sender][_spender] = _value;
