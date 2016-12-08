@@ -22,11 +22,24 @@ contract('EntropyToken', (accounts) => {
         // Buy with 2 Eth worth of value
         entropy.buyTokens({ from: accounts[1], value: 2e18 })
         .then(() => {
-          entropy.balanceOf.call(accounts[1])
+          entropy.balanceOf(accounts[1])
           .then((balance) => {
-            console.log("BALANCE:::::")
-            console.log(balance)
-
+            // Should have 2 tokens
+            assert.equal(balance.valueOf(), 2);
+            done();
+          })
+        })
+      })
+    })
+    it("handles non integer amounts (should floor)", function(done) {
+      helpers.deployEntropyContract()
+      .then((entropy) => {
+        // Buy with 3.5 Eth worth of value
+        entropy.buyTokens({ from: accounts[1], value: 2500000000000000000 })
+        .then(() => {
+          entropy.balanceOf(accounts[1])
+          .then((balance) => {
+            // Should have 2 tokens
             assert.equal(balance.valueOf(), 2);
             done();
           })
