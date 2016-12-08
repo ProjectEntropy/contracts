@@ -50,7 +50,7 @@ contract Entropy is EntropyToken {
 
 
   /**
-   * Creates Entropy tokens
+   * Creates Entropy tokens for whoever called this method
    */
   function buyTokens() payable returns (bool success) {
     var value = msg.value;
@@ -58,9 +58,11 @@ contract Entropy is EntropyToken {
     if (value == 0) throw;
 
     // safety cap
-    //if (getTotalValue() + value > SAFETY_LIMIT) throw;
+    // if (getTotalValue() + value > SAFETY_LIMIT) throw;
 
     // 1 Ether === 1 Entropy Token
+    //   Solidity will floor this by default, so sending 1.9 eth will result in
+    //   1 token
     uint tokens = value / 1 ether;
 
     totalSupply += tokens;
@@ -111,7 +113,4 @@ contract Entropy is EntropyToken {
 
   // A new guardian has been elected
   event NewGuardian(address indexed _guardian, address indexed _creator);
-
-  // Entropy Token transer
-  event Transfer(address indexed _from, address indexed _to, uint256 _value);
 }

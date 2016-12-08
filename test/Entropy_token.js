@@ -15,19 +15,21 @@ contract('EntropyToken', (accounts) => {
     })
   });
 
-  describe("Buying tokens", () => {
-    it("Lets you buy tokens", function(done) {
+  describe("Buying Entropy tokens", () => {
+    it("Lets you buy Entropy tokens", function(done) {
       helpers.deployEntropyContract()
       .then((entropy) => {
         // Buy with 2 Eth worth of value
-        entropy.buyTokens({ from: accounts[1], value: 2e16 })
-        .then((tx) => {
-          return entropy.balanceOf(accounts[1])
-        })
-        .then((balance) => {
-          // Should now hold tokens!
-          assert.equal(balance.valueOf(), 2);
-          done();
+        entropy.buyTokens({ from: accounts[1], value: 2e18 })
+        .then(() => {
+          entropy.balanceOf.call(accounts[1])
+          .then((balance) => {
+            console.log("BALANCE:::::")
+            console.log(balance)
+
+            assert.equal(balance.valueOf(), 2);
+            done();
+          })
         })
       })
     })
