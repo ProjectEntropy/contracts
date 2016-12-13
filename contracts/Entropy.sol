@@ -98,7 +98,9 @@ contract Entropy is EntropyToken {
   /**
    * Alters the safety limit for the maximum value of tokens bought
    */
-  function changeSafeyLimit(uint _new_limit) onlyGuardians returns (bool success) {
+  function changeSafeyLimit(uint _new_limit)
+  onlyGuardians // 💂
+  returns (bool success) {
     // Limit can only be increased
     if(_new_limit < safety_limit) throw;
 

@@ -50,7 +50,6 @@ contract('Entropy - Token', (accounts) => {
   })
 
   describe("Safety Limit", () => {
-
     it("is ok near the safety limit", function(done) {
       helpers.deployEntropyContract()
       .then((entropy) => {
