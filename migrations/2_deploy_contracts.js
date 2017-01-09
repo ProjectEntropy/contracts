@@ -4,6 +4,6 @@ module.exports = function(deployer) {
   deployer.autolink();
 
   // Deploy main contracts
-  deployer.deploy(StandardToken);
+  // deployer.deploy(StandardToken);
   deployer.deploy(Entropy);
 };

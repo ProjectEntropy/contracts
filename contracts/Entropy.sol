@@ -109,7 +109,6 @@ contract Entropy is EntropyToken {
     SafetyLimitChange(msg.sender, _new_limit);
   }
 
-
   /**
    * Actions
    *
@@ -133,6 +132,28 @@ contract Entropy is EntropyToken {
        a.numberOfVotes = 0;
        ActionAdded(actionID, _etherAmount, _description);
        actions_count = actionID + 1;
+   }
+
+
+
+
+   /**
+    * Voting
+    */
+   function vote(uint actionId, bool in_favour)
+   onlyTrusted
+   returns (uint voteID)
+   {
+      Action action = actions[actionId];
+
+      // Check to make sure this person has not already voted
+      if (action.voted[msg.sender] == true) throw;
+
+      voteID = action.votes.length++;
+      action.votes[voteID] = Vote({inSupport: in_favour, citizen: msg.sender});
+      action.voted[msg.sender] = true;
+      action.numberOfVotes = voteID + 1;
+      Voted(actionId, in_favour, msg.sender);
    }
 
 
@@ -211,6 +232,9 @@ contract Entropy is EntropyToken {
    */
 
   event ActionAdded(uint actionID, uint amount, string description);
+
+  // Vote
+  event Voted(uint actionId, bool in_favour, address citizen);
 
   // A new guardian has been elected
   event NewGuardian(address indexed _guardian, address indexed _creator);

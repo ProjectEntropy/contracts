@@ -39,15 +39,19 @@ contract('Entropy - Actions', (accounts) => {
      it("lets trusted citizens vote", (done) => {
        helpers.deployEntropyContract()
        .then((entropy) => {
-         entropy.newAction(1e18, "Rigging refit").then((tx) => {
-           entropy.actions_count().then((actions_count) => {
-             assert.equal(actions_count, 1);
-           })
-           .then(()=>{ done() })
+         entropy.newAction(1e18, "Rigging refit")
+         .then((tx) => {
+           // Vote in favour!
+           entropy.vote(0, true).then((tx) => {
+           done();
+           //  TODO: Check it has a vote!
+           //  entropy.actions[0].numberOfVotes().then((count) => {
+           //    assert.equal(count, 1);
+           //    done();
+           //  })
+          })
          })
        })
      });
-
    })
-
 })
