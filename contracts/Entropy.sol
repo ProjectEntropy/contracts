@@ -1,6 +1,6 @@
 pragma solidity ^0.4.4;
 
-import "/Users/joran/Documents/development/blockchain/entropy_contracts/contracts/tokens/EntropyToken.sol";
+import "./tokens/EntropyToken.sol";
 
 contract Entropy is EntropyToken {
 
