@@ -1,9 +1,6 @@
-module.exports = function(deployer) {
-  // Deploy libraries
-  deployer.deploy(Owned);
-  deployer.autolink();
+// var ConvertLib = artifacts.require("./ConvertLib.sol");
+var Entropy = artifacts.require("./Entropy.sol");
 
-  // Deploy main contracts
-  // deployer.deploy(StandardToken);
+module.exports = function(deployer) {
   deployer.deploy(Entropy);
 };

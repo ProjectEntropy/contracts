@@ -1,3 +1,6 @@
+var Entropy = artifacts.require("./Entropy.sol");
+
+
 exports.deployEntropyContract = () => {
   return Entropy.new({gas: 2000000})
 }

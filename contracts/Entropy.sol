@@ -1,6 +1,6 @@
 pragma solidity ^0.4.4;
 
-import "tokens/EntropyToken.sol";
+import "/Users/joran/Documents/development/blockchain/entropy_contracts/contracts/tokens/EntropyToken.sol";
 
 contract Entropy is EntropyToken {
 
@@ -75,6 +75,7 @@ contract Entropy is EntropyToken {
     // Set the creator as Trusted, a Citizen and a Guardian
     totalSupply = 1;
     balances[msg.sender] = 1;
+    NewCitizen(msg.sender);
 
     trusted_citizen[msg.sender] = true;
     NewTrust(msg.sender, msg.sender);
@@ -230,6 +231,10 @@ contract Entropy is EntropyToken {
    *
    * Important changes to the state of Entropy
    */
+
+  // TODO: This doesn't work:
+  // event NewCitizen(address indexed _citizen);
+
 
   event ActionAdded(uint actionID, uint amount, string description);
 

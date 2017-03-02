@@ -8,6 +8,7 @@ contract('Entropy - Token', (accounts) => {
         helpers.callAndCheck( entropy, 'name', 'Entropy', 'Wrong name!')
         helpers.callAndCheck( entropy, 'symbol', 'ENT', 'Wrong symbol!')
         helpers.callAndCheck( entropy, 'totalSupply', 1, 'Wrong total supply!')
+        helpers.callAndCheck( entropy, 'totalHolders', 1)
         .then(() => {
           done();
         })

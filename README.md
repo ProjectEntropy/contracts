@@ -80,11 +80,17 @@ Compiling Entropy.sol
 ...
 > migrate --reset
 ...
-> var entropy = Entropy.deployed()
+> var Entropy = artifacts.require("./Entropy.sol");
 Instance of an eth-pudding object to interactive with the live Entropy instance
 ```
 
-You need to be running a Ethereum node with RPC enabled for Truffle to connect. In this example, we are just running it with [testrpc](https://github.com/ethereumjs/testrpc), which is a in-memory RPC enabled node written in JS, that is very fast for development and testing. This can be run also on a private blockchain running with [geth](https://github.com/ethereum/go-ethereum), the Ethereum testnet or the mainnet. See [Truffle network configuration](http://truffleframework.com/docs/advanced/networks) for more info.
+You need to be running a Ethereum node with RPC enabled for Truffle to connect. In this example, we are just running it with [testrpc](https://github.com/ethereumjs/testrpc), which is a in-memory RPC enabled node written in JS, that is very fast for development and testing.
+
+To run entropy with the testrpc fast JS-based fake node:
+
+    $ ./testchain.sh
+
+This can be run also on a private blockchain running with [geth](https://github.com/ethereum/go-ethereum), the Ethereum testnet or the mainnet. See [Truffle network configuration](http://truffleframework.com/docs/advanced/networks) for more info.
 
 To run the EntropyTestnet and connect to it with something expecting geth, run:
 
