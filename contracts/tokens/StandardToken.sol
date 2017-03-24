@@ -60,6 +60,7 @@ contract StandardToken is Token {
     return allowed[_owner][_spender];
   }
 
+  
   event NewCitizen(address indexed _citizen);
 
   mapping (address => uint256) balances;
