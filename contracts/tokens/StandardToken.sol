@@ -1,4 +1,4 @@
-pragma solidity ^0.4.4;
+pragma solidity ^0.4.8;
 
 /*
 You should inherit from StandardToken or, for a token like you would want to

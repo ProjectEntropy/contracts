@@ -1,4 +1,4 @@
-pragma solidity ^0.4.4;
+pragma solidity ^0.4.8;
 
 import "./tokens/EntropyToken.sol";
 
@@ -72,7 +72,10 @@ contract Entropy is EntropyToken {
     symbol    = "ENT";        // identifier
     safety_limit = 300 ether; // Inital safety cap
 
-    // Set the creator as Trusted, a Citizen and a Guardian
+    // Setup crowdsale for 60 days from now
+    deadline = now + 60 * 1 days;
+
+    // Set the creator as a Citizen, as Trusted and as a Guardian
     totalSupply = 1;
     balances[msg.sender] = 1;
     NewCitizen(msg.sender);
@@ -113,13 +116,13 @@ contract Entropy is EntropyToken {
   /**
    * Actions
    *
-   * Trusted citizens can create an action, which then can be voted on for 5 days
+   * Trusted citizens 🏃 can create an action, which then can be voted on for 5 days
    */
    function newAction(
-       uint _etherAmount,      // Amount to unlock (optional)
-       string _description    // The idea, task or destination
+       uint _etherAmount,      // Amount of Ether, in wei, to unlock (optional)
+       string _description     // The idea, task or destination
    )
-       onlyTrusted // Only trusted Citizens
+       onlyTrusted // Only trusted Citizens 🏃
        returns (uint actionID)
    {
        actionID = actions.length++;
@@ -134,8 +137,6 @@ contract Entropy is EntropyToken {
        ActionAdded(actionID, _etherAmount, _description);
        actions_count = actionID + 1;
    }
-
-
 
 
    /**

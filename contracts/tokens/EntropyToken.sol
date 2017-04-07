@@ -1,4 +1,4 @@
-pragma solidity ^0.4.4;
+pragma solidity ^0.4.8;
 
 /*
 This Token Contract implements the standard token functionality (https://github.com/ethereum/EIPs/issues/20) as well as the following OPTIONAL extras intended for use by humans.
@@ -24,6 +24,7 @@ contract EntropyToken is StandardToken {
   uint   public totalValue;    // Total value in wei
   uint   public safety_limit;  // Maximum safe amount of ether to hold
 
+  uint   public deadline;      // When does the token sale end
 
   /**
    * Creates Entropy tokens for whoever called this method

@@ -25,6 +25,10 @@ contract('Entropy - Actions', (accounts) => {
     it("lets trusted Citizens create actions", (done) => {
       helpers.deployEntropyContract()
       .then((entropy) => {
+        entropy.actions_count().then((actions_count) => {
+          assert.equal(actions_count, 0);
+        })
+
         entropy.newAction(1e18, "Rigging refit").then((tx) => {
           entropy.actions_count().then((actions_count) => {
             assert.equal(actions_count, 1);
