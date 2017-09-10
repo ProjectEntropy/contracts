@@ -94,7 +94,7 @@ This can be run also on a private blockchain running with [geth](https://github.
 
 To run the EntropyTestnet and connect to it with something expecting geth, run:
 
-    $ parity --chain ./entropy_testnet_chainspec.json --geth
+    $ parity --chain dev
 
 
 ## Gotchas

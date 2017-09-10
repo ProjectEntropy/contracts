@@ -1,84 +1,14 @@
 {
-  "name": "EntropyTest",
-  "engine": {
-    "InstantSeal": null
-  },
-  "params": {
-    "accountStartNonce": "0x0100000",
-    "maximumExtraDataSize": "0x20",
-    "minGasLimit": "0x1388",
-    "networkID": "0x2"
-  },
-  "genesis": {
-    "seal": {
-      "ethereum": {
-        "nonce": "0x00006d6f7264656e",
-        "mixHash": "0x00000000000000000000000000000000000000647572616c65787365646c6578"
-      }
+    "config": {
+        "chainId": 456461,
+        "homesteadBlock": 0,
+        "eip155Block": 0,
+        "eip158Block": 0
     },
-    "difficulty": "0x20000",
-    "author": "0x8590bCE177d31043D8c0aC19f2cdd4fd5C99c816",
-    "timestamp": "0x00",
-    "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "extraData": "0x",
-    "gasLimit": "0x2fefd8"
-  },
-  "accounts": {
-    "0000000000000000000000000000000000000001": {
-      "balance": "1",
-      "nonce": "1048576",
-      "builtin": {
-        "name": "ecrecover",
-        "pricing": {
-          "linear": {
-            "base": 3000,
-            "word": 0
-          }
-        }
-      }
-    },
-    "0000000000000000000000000000000000000002": {
-      "balance": "1",
-      "nonce": "1048576",
-      "builtin": {
-        "name": "sha256",
-        "pricing": {
-          "linear": {
-            "base": 60,
-            "word": 12
-          }
-        }
-      }
-    },
-    "0000000000000000000000000000000000000003": {
-      "balance": "1",
-      "nonce": "1048576",
-      "builtin": {
-        "name": "ripemd160",
-        "pricing": {
-          "linear": {
-            "base": 600,
-            "word": 120
-          }
-        }
-      }
-    },
-    "0000000000000000000000000000000000000004": {
-      "balance": "1",
-      "nonce": "1048576",
-      "builtin": {
-        "name": "identity",
-        "pricing": {
-          "linear": {
-            "base": 15,
-            "word": 3
-          }
-        }
-      }
-    },
-    "8590bCE177d31043D8c0aC19f2cdd4fd5C99c816": {
-      "balance": "5000",
-      "nonce": "1048576"
+    "difficulty": "200000000",
+    "gasLimit": "2100000",
+    "alloc": {
+        "7df9a875a174b3bc565e6424a0050ebc1b2d1d82": { "balance": "300000" },
+        "f41c74c9ae680c1aa78f42e5647a62f353b7bdde": { "balance": "400000" }
     }
-  }
 }

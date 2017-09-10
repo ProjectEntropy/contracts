@@ -8,6 +8,13 @@ contract Entropy is EntropyToken {
    * A Citizen 🏃 is anyone who holds one or more Entropy Tokens 🍪
    * Any address with a balance > 0 is considered a Citizen
    */
+   mapping(address => bool) citizens;
+
+  /**
+   * How to contact each citizen?
+   */
+  mapping(address => string) contact_citizens;
+
 
   /**
    * Trusted Citizens 👬 hold equal voting rights to all
@@ -16,7 +23,7 @@ contract Entropy is EntropyToken {
   mapping(address => bool) trusted_citizen;
 
   /**
-   * Guardians 💂 are the elected protectors of the project
+   * Guardians 🦁 are the elected protectors of the project
    * They are also able to mark Citizens as trusted, allowing for a human-based
    * proof of individuality system.
    */
@@ -27,7 +34,7 @@ contract Entropy is EntropyToken {
    * All Actions :bulb: can be voted :hand: on by the entire community for 5 days.
    *
    * For an Action :bulb: to be accepted, it must have *more than 50% approval*
-   * and at least as many votes :hand: as there are Guardian 💂 members
+   * and at least as many votes :hand: as there are Guardian 🦁 members
    *
    * After this period accepted Actions :bulb: will be added to the Action
    * Stream :clipboard: until they are marked as complete by one of the Guardians :guardsman:
@@ -91,19 +98,17 @@ contract Entropy is EntropyToken {
    * Fallback function
    * This runs whenever ether is sent to Entropy without any other information
    */
-  function() {
+  function() payable {
+
     // Buy tokens 🍪
     buyTokens();
   }
-
-
-  // Token Selling related 🍪
 
   /**
    * Alters the safety limit for the maximum value of tokens bought
    */
   function changeSafeyLimit(uint _new_limit)
-  onlyGuardians // 💂
+  onlyGuardians // 🦁
   returns (bool success) {
     // Limit can only be increased
     if(_new_limit < safety_limit) throw;
@@ -160,12 +165,12 @@ contract Entropy is EntropyToken {
 
 
   /**
-   * Guardians 💂
+   * Guardians 🦁
    */
 
   // Set someone as a Guardian
   function setGuardian(address _person, bool _is_guardian)
-  onlyGuardians // 💂
+  onlyGuardians // 🦁
   returns (bool success) {
     guardians[_person] = _is_guardian;
 
@@ -178,7 +183,7 @@ contract Entropy is EntropyToken {
     return guardians[_citizen];
   }
 
-  // Protect a function so only guardians 💂 can run it
+  // Protect a function so only guardians 🦁 can run it
   modifier onlyGuardians {
     if (isGuardian(msg.sender) == false) throw;
     _;
@@ -189,8 +194,9 @@ contract Entropy is EntropyToken {
    */
 
   // Set someone as a Trusted Citizen
+  // entropy.setTrust(_person, true)
   function setTrust(address _person, bool _is_trusted)
-  onlyGuardians // 💂
+  onlyGuardians // 🦁
   returns (bool success) {
     trusted_citizen[_person] = _is_trusted;
 
@@ -221,6 +227,11 @@ contract Entropy is EntropyToken {
     return balanceOf(_citizen) > 0;
   }
 
+  // Contact details of an address
+  function contact_details(address _citizen) public constant returns (string contact) {
+    return contact(_citizen);
+  }
+
   modifier onlyCitizens {
     if (isCitizen(msg.sender) == false) throw;
     _;
@@ -244,6 +255,9 @@ contract Entropy is EntropyToken {
 
   // A new guardian has been elected
   event NewGuardian(address indexed _guardian, address indexed _creator);
+
+  // A person wants to be trusted
+  event TrustRequest(address indexed _citizen, address indexed _guardian);
 
   // A new person has been trusted
   event NewTrust(address indexed _citizen, address indexed _guardian);
