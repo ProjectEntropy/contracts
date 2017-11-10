@@ -77,7 +77,7 @@ contract Entropy is EntropyToken {
     Transfer(this, buyer, value);
   }
 
-  function changeSafeyLimit(uint _new_limit) onlyGuardians returns (bool success) {
+  function changeSafetyLimit(uint _new_limit) onlyGuardians returns (bool success) {
     // Limit can only be increased
     if(_new_limit < safety_limit) throw;
 

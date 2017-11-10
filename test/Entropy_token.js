@@ -91,7 +91,7 @@ contract('EntropyToken', (accounts) => {
     it("lets guardians change safety limit", (done) => {
       helpers.deployEntropyContract()
       .then((entropy) => {
-        entropy.changeSafeyLimit(500e18)
+        entropy.changeSafetyLimit(500e18)
         .then(() => {
           // Buy with 399 Eth worth of tokens
           entropy.buyTokens({ value: 399e18 })
